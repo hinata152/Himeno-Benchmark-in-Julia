@@ -4,11 +4,11 @@ This is a Julia program executing the Himeno Benchmark.
 
 ## Descriptions
 
-This program is Himeno benchmark problem written in Julia 0.6.2.  
-Is the Julia really fast against engineering problems?  
-How do I study Julia's optimization techniques?  
-Himeno Benchmark is a good problem to study those.  
-This program was simply rewritten into Julia from [a program](https://github.com/degawa/Himeno-Benchmark-in-Modern-Fortran) which is rewritten in Modern Fortran style. Currently, the maximum performance of this program is 25% of that of the Modern Fortran program.  
+This program is Himeno benchmark problem written in Julia 0.6.2.
+Is the Julia really fast against engineering problems?
+How do I study Julia's optimization techniques?
+Himeno Benchmark is a good problem to study those.
+This program was simply rewritten into Julia from [a program](https://github.com/degawa/Himeno-Benchmark-in-Modern-Fortran) which is rewritten in Modern Fortran style. Currently, the maximum performance of this program is 25% of that of the Modern Fortran program.
 
 ## Demo
 ![Demo](./demo.png)

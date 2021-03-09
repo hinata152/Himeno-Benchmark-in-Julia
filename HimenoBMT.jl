@@ -2,7 +2,7 @@
 #This program was simply rewritten into Julia from a program which rewritten in Modern Fortran style.
 #https://github.com/degawa/Himeno-Benchmark-in-Modern-Fortran
 #
-#For the original version of the Himeno benchmark, 
+#For the original version of the Himeno benchmark,
 #please refer to the URLs below:
 #http://accc.riken.jp/supercom/himenobmt/
 #http://accc.riken.jp/en/supercom/himenobmt/
@@ -28,11 +28,11 @@ mimax, mjmax, mkmax = size(p)
             pⁿ⁺¹ =  a[i,j,k,1 ]*  p[i+1,j  ,k  ]
                    +a[i,j,k,2 ]*  p[i  ,j+1,k  ]
                    +a[i,j,k,3 ]*  p[i  ,j  ,k+1]
-                   +b[i,j,k,1 ]*( p[i+1,j+1,k  ]-p[i+1,j-1,k  ] 
+                   +b[i,j,k,1 ]*( p[i+1,j+1,k  ]-p[i+1,j-1,k  ]
                                  -p[i-1,j+1,k  ]+p[i-1,j-1,k  ])
-                   +b[i,j,k,2 ]*( p[i  ,j+1,k+1]-p[i  ,j-1,k+1] 
+                   +b[i,j,k,2 ]*( p[i  ,j+1,k+1]-p[i  ,j-1,k+1]
                                  -p[i  ,j+1,k-1]+p[i  ,j-1,k-1])
-                   +b[i,j,k,3 ]*( p[i+1,j  ,k+1]-p[i-1,j  ,k+1] 
+                   +b[i,j,k,3 ]*( p[i+1,j  ,k+1]-p[i-1,j  ,k+1]
                                  -p[i+1,j  ,k-1]+p[i-1,j  ,k-1])
                    +c[i,j,k,1 ]*  p[i-1,j  ,k  ]
                    +c[i,j,k,2 ]*  p[i  ,j-1,k  ]
