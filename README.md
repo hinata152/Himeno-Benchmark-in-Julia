@@ -4,7 +4,7 @@ This is a Julia program executing the Himeno Benchmark.
 
 ## Descriptions
 
-This program is Himeno benchmark problem written in Julia 0.6.2.
+This program is Himeno benchmark problem written in Julia 1.5.3.
 Is the Julia really fast against engineering problems?
 How do I study Julia's optimization techniques?
 Himeno Benchmark is a good problem to study those.
@@ -15,7 +15,7 @@ This program was simply rewritten into Julia from [a program](https://github.com
 The execution performance have been significantly improved. (10th May 2018)
 
 ## Requirement
-Julia 0.6.2
+Julia 1.5.3
 
 ## Usage
 

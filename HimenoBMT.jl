@@ -13,11 +13,11 @@
 function jacobi!(p, ε, a, b, c, bnd, src, wrk, numItr)
 #function jacobi!(p::Array{Float32,3}, ε::Float32, a::Array{Float32,4}, b::Array{Float32,4}, c::Array{Float32,4}, bnd::Array{Float32,3}, src::Array{Float32,3}, wrk::Array{Float32,3}, numItr::Int64)
 mimax, mjmax, mkmax = size(p)
-    const imax = mimax-1
-    const jmax = mjmax-1
-    const kmax = mkmax-1
+    imax = mimax-1
+    jmax = mjmax-1
+    kmax = mkmax-1
 
-    const ω=0.8f0 #relaxation parameter
+    ω=0.8f0 #relaxation parameter
     pⁿ⁺¹ = 0.0f0
     Δp   = 0.0f0
     for loop in 1:numItr
@@ -64,7 +64,7 @@ println("           M  (256x128x128)")
 println("           L  (512x256x256)")
 println("           XL (1024x512x512)")
 print("Grid-size= ")
-GridSize = readline(STDIN)          #keyboard input
+GridSize = readline(stdin)          #keyboard input
 GridSize = uppercase(GridSize)      #convert to uppercase
 
 if GridSize ≠ "XS" && GridSize ≠ "S" && GridSize ≠ "M" && GridSize ≠ "L" && GridSize ≠ "XL"
@@ -96,21 +96,21 @@ const numPoints = (kmax-2)*(jmax-2)*(imax-2)
 const flop = numPoints*numFlopPerPoint
 
 #Declaring and Initializing matrixes
-p   = Array{Float32}(mimax,mjmax,mkmax)
-a   = Array{Float32}(mimax,mjmax,mkmax,4)
-b   = Array{Float32}(mimax,mjmax,mkmax,3)
+p   = Array{Float32}(undef,mimax,mjmax,mkmax)
+a   = Array{Float32}(undef,mimax,mjmax,mkmax,4)
+b   = Array{Float32}(undef,mimax,mjmax,mkmax,3)
 c   = similar(b)
 src = similar(p)
 bnd = similar(p)
 wrk = similar(p)
 
-a[1:imax,1:jmax,1:kmax,1:3] = 1.0f0
-a[1:imax,1:jmax,1:kmax,4  ] = Float32(1.0/6.0)
-b[1:imax,1:jmax,1:kmax,:] = 0.0f0
-c[1:imax,1:jmax,1:kmax,:] = 1.0f0
-bnd[1:imax,1:jmax,1:kmax] = 1.0f0
-src[1:imax,1:jmax,1:kmax] = 0.0f0
-[ p[:,:,k]=Float32((k-1)^2/(kmax-1)^2) for k = 1:kmax ]
+a[1:imax,1:jmax,1:kmax,1:3] .= 1.0f0
+a[1:imax,1:jmax,1:kmax,4  ] .= Float32(1.0/6.0)
+b[1:imax,1:jmax,1:kmax,:] .= 0.0f0
+c[1:imax,1:jmax,1:kmax,:] .= 1.0f0
+bnd[1:imax,1:jmax,1:kmax] .= 1.0f0
+src[1:imax,1:jmax,1:kmax] .= 0.0f0
+[ p[:,:,k].=Float32((k-1)^2/(kmax-1)^2) for k = 1:kmax ]
 
 ε = 0.0f0 #error
 numItr = 1 #number of iterations of Jacomi method
